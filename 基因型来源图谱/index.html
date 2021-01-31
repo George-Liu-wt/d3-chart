@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>...</title>
+<script src="./highcharts-new.js"></script>
+<script src="https://img.hcharts.cn/highcharts/modules/heatmap.js"></script>
+<script src="./boost.js"></script>
+<script src="./jquery.min.js"></script>
+<script src="./js.js"></script>
+</head>
+<body>
+<div id="container" style="max-width:800px;height:600px"></div>
+<script>
+var contents1 = {
+  "data": [[0, 0, 1], [0, 1, 2], [0, 2, 3], [0, 3, 1], [0, 4, 2], [1, 0, 3], [1, 1, 1], [1, 2, 2], [1, 3, 4], [1, 4, 1], [2, 0, 2], [2, 1, 1], [2, 2, 3], [2, 3, 4], [2, 4, 2], [3, 0, 2], [3, 1, 1], [3, 2, 1], [3, 3, 1], [3, 4, 1], [4, 0, 3], [4, 1, 1], [4, 2, 2], [4, 3, 1], [4, 4, 1], [5, 0, 2], [5, 1, 3], [5, 2, 1], [5, 3, 3], [5, 4, 1], [6, 0, 3], [6, 1, 4], [6, 2, 2], [6, 3, 1], [6, 4, 3], [7, 0, 3], [7, 1, 1], [7, 2, 2], [7, 3, 2], [7, 4, 3], [8, 0, 1], [8, 1, 1], [8, 2, 3], [8, 3, 4], [8, 4, 4], [9, 0, 4], [9, 1, 1], [9, 2, 1], [9, 3, 2], [9, 4, 1], [10, 0, 5], [10, 1, 6], [10, 2, 7], [10, 3, 8], [10, 4, 9]],
+  "params": {
+    "colors": ['#FF4500', '#0000FF', '#FFFF00', '#808080', '#00FF00', '#0000FF', '#808080', '#FFFFFF', '#FFFFFF'], /* 颜色对应1-9的值 */
+    "samples": ['样本名1', '样本名2', '样本名3', '样本名4', '样本名5'],
+    "pos_x": [0, 2, 5, 8, 10],  /*pos_x为横坐标所有染色体位置的最大值生成的list。*/
+    "name":["chr1","chr2","chr3","chr4"],
+    "x_title": "xxxxxx",
+    "y_title": "yyyyy",
+    "title": "title_xxxxxxxxxx"
+  },
+  "size": {
+    "width": 600,
+    "height": 400
+  }
+};
+jQuery.heatmap_report.show_heatmap('container', contents1);
+</script>
+</body>
+</html>

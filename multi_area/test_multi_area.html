@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="expires" content="0" />
+<title>多组区域分布图</title>
+
+
+<script src="jquery-1.8.3.min.js"></script>
+<!--highcharts相关-->
+
+<script src="d3-3.min.js"></script>
+<script src="graph.js"></script>
+<style>
+.axis path,.axis line {stroke:#000;fill:none}
+.texts{font-size:11px;}
+
+.tooltip{
+            font-family:simsun;
+            font-size:16px;
+            width:120;
+            height:auto;
+            position:absolute;
+            text-align:center;
+            border-style:solid;
+            border-width:1px;
+            background-color:white;
+            border-radius:5px;
+        }
+</style>
+</head>
+
+<body>
+    <div>
+        <div><a href="list.html"><input type="button" value="返回"></a></div>
+        <div style="width:980px;text-align:center;font-size:20px;margin-top:20px;font-weight:bold">多组区域分布图</div>
+        <div style="float:left;width:500px;height:600px;">
+            <h3>参数区域:</h3>
+            <textarea style="width:480px;height:500px;">
+{
+	"data": [[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11],[11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11,11, 35, 23, 78, 55, 18, 98, 100, 22, 65,65,65,65,11]],
+	"legend":["chr1", "chr2", "chr3", "chr4"],
+	"params":{"title":"这是标题测试", "y_label":"y轴测试","x_label":"x轴测试"},
+	"size":{"width":1000, "height":40}
+}
+        </textarea>
+            <p style="text-align:right;padding-right:10px;"><input type="button" value="运行" class="run" /><p>
+
+        </div>
+        <div id="container"></div>
+    </div>
+    <div style="clear:both"></div>
+</body>
+
+<script>
+    var content = $.parseJSON($('textarea').val());
+    run(content);
+    function run(content)
+    {
+        graph.multi_area("container", content);
+    }
+
+    $('.run').click(function() {
+        var content = $.parseJSON($('textarea').val());
+        run(content);
+    });
+
+
+</script>

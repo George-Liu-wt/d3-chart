@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* css 代码  */
+            #container {
+            		min-width: 400px;
+            		height: 800px;
+            		margin: 1em auto;
+            }
+        </style>
+        <script src="./highcharts.js"></script>
+        <script src="./boost.js"></script>
+        <script src="./jquery.min.js"></script>
+        <script src="./js.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            // JS 代码
+            var contents1 = {
+              // "datas": [
+              //   {
+              //     "name": "Farm CPU",
+              //     "data":[[0, 3], [2, 2.5], [2.3, 2.3], [2.5, 1], [2.8, 4], [3, 3.3], [5, 2], [6, 2.8], [7.5, 2], [8, 0]]
+              //   },
+              //   {
+              //     "name": "MLM",
+              //     "data":[[0, 3], [2, 2.5], [2.3, 2.3], [2.5, 1], [2.8, 4], [3, 3.3], [5, 2], [6, 2.8], [7.5, 2], [8, 0]]
+              //   },
+              //   {
+              //     "name": "GLM",
+              //     "data":[[0, 3], [2, 2.5], [2.3, 2.3], [2.5, 1], [2.8, 4], [3, 3.3], [5, 2], [6, 2.8], [7.5, 2], [8, 0]]
+              //   }
+              // ],
+              "datas": [
+                {
+                  "name": "Farm CPU",
+                  // "data": "FarmCPU.json"
+                  "data": "MVP.Chlorogenic_acid.FarmCPU.json"
+                },
+                // {
+                //   "name": "MLM",
+                //   // "data": "MLM.json"
+                //   "data": "MVP.Chlorogenic_acid.mlm.json"
+                // },
+                {
+                  "name": "GLM",
+                  // "data": "GLM.json"
+                  "data": "MVP.Chlorogenic_acid.glm.json"
+                }
+              ],
+              "params": {
+                "colors": ["#66C2A5", "blue", "yellow", "red"],
+                "x_max": 6,
+                "y_max": 15,
+                "is_gridline": 1,  /*1显示网格线,0不显示*/
+                "title": "Title",
+                "x_title": "x_title",
+                "y_title": "y_title",
+                "show_p": 1   /*1显示期望P值,0不显示*/
+              },
+              "size": {
+                "width": 1000,
+                "height": 500
+              }
+            };
+            jQuery.Gwas_map.show_Gwas_map('container', contents1);
+        </script>
+    </body>
+</html>

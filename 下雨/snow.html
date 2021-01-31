@@ -1,0 +1,56 @@
+<html>
+<head>
+  <style type="text/css">
+  /* *{margin:0;padding:0;list-style-type:none;}
+  a,img{border:0;color:#fff;} */
+  body {
+  overflow: hidden;
+  background: black;
+  }
+  </style>
+<script language="javascript" type="text/javascript">
+var i;
+var snows=new Array();
+var sLefts=new Array();
+var sTops=new Array();
+var maxLeft,maxTop;
+var htmlCode="";
+var fsizes=new Array();
+for(i=0;i<75;i++)
+htmlCode=htmlCode+"<div style='position:absolute;color:white;' id='snow"+i+"'>*</div>";
+document.write(htmlCode);
+maxLeft=document.body.clientWidth-20;
+maxTop=document.body.clientHeight-20;
+for(i=0;i<75;i++)
+{
+snows[i]=document.getElementById("snow"+i);
+fsizes[i]=Math.floor(Math.random()*10)*9;
+snows[i].style.fontSize=fsizes[i];
+}
+for(i=0;i<75;i++)
+{
+sLefts[i]=Math.random()*maxLeft;
+snows[i].style.left=sLefts[i];
+sTops[i]=Math.random()*maxTop;
+snows[i].style.top=sTops[i];
+}
+function snow()
+{
+for(i=0;i<75;i++)
+{
+if(parseInt(snows[i].style.left)+snows[i].offsetWidth >=maxLeft)
+snows[i].style.left=0;
+if(parseInt(snows[i].style.top)+snows[i].offsetHeight >=maxTop)
+snows[i].style.top=0;
+snows[i].style.left=parseInt(snows[i].style.left)+5;
+snows[i].style.top=parseInt(snows[i].style.top)+5;
+}
+setTimeout("snow()",25);
+}
+</script>
+</head>
+<body onload="snow()">
+<script language="javascript" type="text/javascript">
+</script>
+</body>
+</html>

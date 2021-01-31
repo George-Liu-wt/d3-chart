@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gene</title>
+    <link rel="stylesheet" href="./css.css" type="text/css" />
+    <script src="./jquery.min.js"></script>
+    <script src="d3-3.min.js"></script>
+    <script src="./js.js"></script>
+    <script src="d3-color.v1.min.js"></script>
+    <script src="d3-interpolate.v1.min.js"></script>
+    <script src="d3-scale-chromatic.v1.min.js"></script>
+    <!-- <script src="d3.legend.js"></script> -->
+</head>
+<body>
+<div id="container" style="min-width:4px;height:4px"></div>
+<script>
+var contents1 = {
+    "categories": ["LG1", "LG2"],
+    "datas": [{
+        "snp_value": [],
+        "values": [["chr1",0], ["chr1",43.313427485184], ["chr1",62.143631096201], ["chr1",89.041954674751], ["chr1",122.75695311386], ["chr2",127.24115463198], ["chr2",161.14550515054]]
+    },
+    {
+        "snp_value": [],
+        "values": [["chr3",0], ["chr3",40.579281763357], ["chr3",63.069780604376], ["chr3",97.515799384926], ["chr3",107.73136669206], ["chr4",128.16250130632], ["chr4",163.27816369258]]
+    }],
+    "params": {
+        "text_title": "",
+        "y_title": "",
+        "x_title": "",
+        "color_num": 2,
+        "axis_start": 0,
+        "axis_end": 175.58946798934
+    },
+    "size": {
+        "width": 20,
+        "height": 780
+    }
+};
+jQuery.BSA_linechart.show_BSA_linechart("container",contents1);
+</script>
+</body>
+</html>

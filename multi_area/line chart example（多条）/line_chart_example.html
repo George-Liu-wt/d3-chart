@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>line chart Example</title>
+    <link rel="stylesheet" href="./css.css" type="text/css" />
+    <script src="./jquery.min.js"></script>
+    <script src="./d3.min.js"></script>
+    <script src="./js.js"></script>
+</head>
+<body>
+<div id="container" style="min-width:4px;height:4px"></div>
+<script>
+var contents1={
+
+        "alldatas": [
+          {
+          "name": "line1",
+          "values": [{"x": 0,"y": 0},{"x": 1,"y": 1},{"x": 2,"y": 2},{"x": 3,"y": 4},{"x": 4,"y": 4},{"x": 5,"y": 8},{"x": 6,"y": 6},{"x": 7,"y": 2},{"x": 8,"y": 8},{"x": 9,"y": 9},{"x": 10,"y": 10},{"x": 11,"y": 1},{"x": 12,"y": 2},{"x": 13,"y": 4},{"x": 14,"y": 4},{"x": 15,"y": 8},{"x": 16,"y": 6},{"x": 17,"y": 2},{"x": 18,"y": 8},{"x": 19,"y": 9},{"x": 20,"y": 10}],
+          "color": "yellow",
+          "yz": [0,1,2,4,4,8,6,2,8,9,10,1,2,4,4,8,6,2,8,9,10]
+        },
+        {
+          "name": "line2",
+          "values": [{"x": 0,"y": 10},{"x": 1,"y": 9},{"x": 2,"y": 0},{"x": 3,"y": 3},{"x": 4,"y": 2},{"x": 5,"y": 5},{"x": 6,"y": 3},{"x": 7,"y": 7},{"x": 8,"y": 5},{"x": 9,"y": 2},{"x": 10,"y": 1},{"x": 11,"y": 9},{"x": 12,"y": 0},{"x": 13,"y": 3},{"x": 14,"y": 2},{"x": 15,"y": 5},{"x": 16,"y": 3},{"x": 17,"y": 7},{"x": 18,"y": 5},{"x": 19,"y": 2},{"x": 20,"y": 1}],
+          "color": "grey",
+          "yz": [2,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,1]
+        },
+        {
+          "name": "line3",
+          "values": [{"x": 0,"y": 4},{"x": 1,"y": 5},{"x": 2,"y": 7},{"x": 3,"y": 2},{"x": 4,"y": 8},{"x": 5,"y": 8},{"x": 6,"y": 2},{"x": 7,"y": 10},{"x": 8,"y": 1},{"x": 9,"y": 1},{"x": 10,"y": 4},{"x": 11,"y": 5},{"x": 12,"y": 7},{"x": 13,"y": 2},{"x": 14,"y": 8},{"x": 15,"y": 8},{"x": 16,"y": 2},{"x": 17,"y": 10},{"x": 18,"y": 1},{"x": 19,"y": 1},{"x": 20,"y": 4}],
+          "color": "cyan",
+          "yz": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,1]
+        }
+      ]
+
+
+}
+jQuery.BSA_linechart.show_BSA_linechart("container",contents1);
+</script>
+</body>
+</html>

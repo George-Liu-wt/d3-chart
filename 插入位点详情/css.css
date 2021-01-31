@@ -1,0 +1,10 @@
+  line {
+    position:absolute;
+    z-index:2;
+      }
+
+  .bar rect {
+    position:absolute;
+    z-index:1;
+    stroke:white;
+      }

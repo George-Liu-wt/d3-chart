@@ -1,0 +1,144 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Highcharts</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./d3.min.js" charset="utf-8"></script>
+    <!-- <script src="plot_bar_tree.src.js"></script> -->
+    <script src="plot_bar_tree.src.js"></script>
+</head>
+
+<body>
+    <div id="container" ></div>
+    <div id="dataset-picker"></div>
+    <script language="JavaScript">
+    // var contents = {
+    //     "data": "(Bacteroidales:0.06697,(((Burkholderiales:0.21168,Enterobacteriales:0.10686)0.655245:0.04948,(Desulfovibrionales:0.10489,Campylobacterales:0.21005):0.02254):0.03414,((Mollicutes_RF9:0.34328,(Clostridiales:0.09575,((Erysipelotrichales:0.27945,Lactobacillales:0.14964)0.256985:0.09769,((Gastranaerophilales:0.21894,Verrucomicrobiales:0.36391)1.00:0.04470,Selenomonadales:0.11938):0.04805):0.07485):0.02825):0.02857,(Bifidobacteriales:0.21210,Coriobacteriales:0.22193):0.11296):0.01634):0.37342):0.10000;\n",
+    //     "legend_bar": {
+    //         "test1": "#F44336",
+    //         "test2": "#388E3C",
+    //         "Con": "#0288D1"
+    //     },
+    //     "bar_data": [
+    //         ["test1", "test2", "Con"],
+    //         ["Gastranaerophilales", 3, 0, 3],
+    //         ["Clostridiales", 693, 1603, 199],
+    //         ["Campylobacterales", 21, 109, 1],
+    //         ["Coriobacteriales", 24, 1, 0],
+    //         ["Enterobacteriales", 3, 7, 276],
+    //         ["Erysipelotrichales", 159, 17, 148],
+    //         ["Selenomonadales", 82, 189, 121],
+    //         ["Bacteroidales", 1711, 929, 1969],
+    //         ["Lactobacillales", 936, 290, 305],
+    //         ["Bifidobacteriales", 13, 0, 12],
+    //         ["Verrucomicrobiales", 3, 10, 108],
+    //         ["Desulfovibrionales", 1, 111, 7],
+    //         ["Mollicutes_RF9", 0, 12, 0],
+    //         ["Burkholderiales", 63, 23, 612]
+    //     ],
+    //     "tree_color": [{
+    //         "name": "p__Actinobacteria",
+    //         "color": "#388E3C",
+    //         "species": ["Coriobacteriales", "Bifidobacteriales"]
+    //     }, {
+    //         "name": "p__Tenericutes",
+    //         "color": "#F44336",
+    //         "species": ["Mollicutes_RF9"]
+    //     }, {
+    //         "name": "p__Firmicutes",
+    //         "color": "#0288D1",
+    //         "species": ["Clostridiales", "Erysipelotrichales", "Selenomonadales", "Lactobacillales"]
+    //     }, {
+    //         "name": "p__Cyanobacteria",
+    //         "color": "#FF9800",
+    //         "species": ["Gastranaerophilales"]
+    //     }, {
+    //         "name": "p__Bacteroidetes",
+    //         "color": "#212121",
+    //         "species": ["Bacteroidales"]
+    //     }, {
+    //         "name": "p__Verrucomicrobia",
+    //         "color": "#E91E63",
+    //         "species": ["Verrucomicrobiales"]
+    //     }, {
+    //         "name": "p__Proteobacteria",
+    //         "color": "#673AB7",
+    //         "species": ["Campylobacterales", "Enterobacteriales", "Desulfovibrionales", "Burkholderiales"]
+    //     }],
+    //     "size": {
+    //         "width": 1000,
+    //         "height": 530
+    //     },
+    //     "params": {
+    //         "title": "Phylogenetic tree on Order bar",
+    //         "margin_left": 20,
+    //         "margin_right": 10,
+    //         "margin_top": 70,
+    //         "margin_bottom": 10,
+    //         "direction": "horizontal",
+    //         "legend_text": "Group",
+    //         "chart_text": "true",
+    //         "plot_bar": false,
+    //         "show_line": 1,   /* 0:不显示枝长；1:显示枝长。*/
+    //         "show_confidence": 1,  /* 0:不显示置信度；1:显示置信度。*/
+    //         "show_name": 1  /*0：不显示样本名，1：显示样本名。*/
+    //     }
+    // }
+
+
+      var contents = {
+        "data":"(R32:0.06452,((R35:0.03903,(R29:0.02703,R37:0.02383)1.000:0.02509)1.000:0.02764,(R31:0.04517,R36:0.05270)0.949:0.01091)1.000:0.02254,((R30:0.05311,R34:0.03860)0.999:0.00670,(((R40:0.03523,(R42:0.04304,(R39:0.03814,(R43:0.02879,(R41:0.02034,R44:0.01926)1.000:0.01031)1.000:0.02547)1.000:0.01396)0.884:0.01127)1.000:0.07780,(R33:0.05423,(R5:0.18852,((R28:0.06015,R38:0.05086)1.000:0.05859,((R45:0.06208,((R46:0.05943,(R48:0.03257,R49:0.03364)1.000:0.03066)1.000:0.01676,(R47:0.04716,R50:0.05957)1.000:0.01400)1.000:0.01532)1.000:0.04238,(R24:0.11482,(R22:0.08613,((R21:0.05694,(R25:0.01925,R27:0.02454)1.000:0.06274)1.000:0.03074,(R23:0.04814,R26:0.05085)0.973:0.01221)1.000:0.05387)1.000:0.01864)1.000:0.01653)1.000:0.01818)1.000:0.01997)1.000:0.02091)0.980:0.00633)1.000:0.00552,(((((R11:0.04423,R7:0.05246)0.233:0.01030,(R6:0.04334,R9:0.03099)0.997:0.01374)1.000:0.07325,(R8:0.09408,(R13:0.07076,(R10:0.05768,R12:0.05337)1.000:0.02117)1.000:0.02837)0.996:0.01647)1.000:0.09369,((R15:0.01766,R19:0.01834)1.000:0.02640,((R20:0.02953,(R14:0.02822,R18:0.02480)1.000:0.01040)1.000:0.01036,(R16:0.03180,R17:0.02688)0.994:0.00744)1.000:0.01466)1.000:0.07744)0.998:0.00631,((R3:0.03238,R4:0.02146)1.000:0.04668,(R1:0.01716,R2:0.02194)1.000:0.02493)1.000:0.17855)1.000:0.00665)1.000:0.00473)1.000:0.00767);","tree_color":[{"name":"Q1","color":"#388E3C","species":["R21","R23","R24"]},{"name":"Q2","color":"#0288D1","species":["R14","R18","R20"]},{"name":"Q4","color":"#FF9800","species":["R28","R34","R38"]},{"name":"Q7","color":"#87CEEB","species":["R22","R26"]},{"name":"Q6","color":"#E91E63","species":["R47","R50"]},{"name":"Q9","color":"#673AB7","species":["R16","R17"]},{"name":"Q8","color":"#006400","species":["R39","R40","R41","R44"]},{"name":"Q15","color":"#FFA500","species":["R30","R32"]},{"name":"Q14","color":"#FF0000","species":["R11","R6","R9"]},{"name":"Q17","color":"#8B0000","species":["R2","R3","R4"]},{"name":"Q16","color":"#808080","species":["R25","R27"]},{"name":"Q11","color":"#C0C0C0","species":["R31","R36"]},{"name":"Q10","color":"#90EE90","species":["R45","R46","R48","R49","R5"]},{"name":"Q13","color":"#7FFFAA","species":["R33","R7"]},{"name":"Q12","color":"#FF1493","species":["R15","R19"]},{"name":"Q19","color":"#FFC0CB","species":["R10","R12","R13","R8"]},{"name":"Q18","color":"#FF00FF","species":["R29","R35","R37"]}],"size":{"width":1000,"height":1490},"params":{"title":"Phylogenetic tree on Genus bar","legend_text":"","show_line":"1","show_confidence":"1","show_name":"1"}
+      }
+
+    // var contents = {
+    //     "data": "(norank_Bacteroidales_S24-7_group:0.06697,((((Parasutterella:0.21168,Escherichia-Shigella:0.10686):0.04948,(Desulfovibrio:0.10489,Helicobacter:0.21005):0.02254):0.03414,((((norank_Mollicutes_RF9:0.21617,Ruminococcaceae_UCG-014:0.08936):0.07921,(((Lachnospiraceae_UCG-010:0.02613,Defluviitaleaceae_UCG-011:0.08317):0.02621,(((Blautia:0.05380,Sellimonas:0.03665):0.00055,(Lachnoclostridium:0.01887,Coprococcus_1:0.05265):0.00551):0.00525,((((((Lachnospiraceae_UCG-001:0.01450,Roseburia:0.01756):0.02188,(Coprococcus_2:0.03899,Lachnospira:0.06740):0.01593):0.00692,[Ruminococcus]_torques_group:0.03214):0.00960,Unclassified_Lachnospiraceae:0.02830):0.01093,(([Bacteroides]_pectinophilus_group:0.12909,Marvinbryantia:0.04003):0.00594,(uncultured_Lachnospiraceae:0.07248,Lachnospiraceae_NK4A136_group:0.05008):0.00055):0.01748):0.01108,Eisenbergiella:0.03593):0.01851):0.04754):0.01839,(((Ruminiclostridium_6:0.06047,(Ruminococcus_1:0.09689,Anaerotruncus:0.08032):0.03413):0.01728,(uncultured_Ruminococcaceae:0.13828,(Ruminiclostridium_5:0.07341,[Eubacterium]_coprostanoligenes_group:0.08039):0.04103):0.01394):0.03650,((Ruminococcaceae_UCG-009:0.02839,Ruminococcaceae_UCG-008:0.13756):0.02570,(Ruminococcaceae_UCG-005:0.11782,(((((Flavonifractor:0.05370,Unclassified_Ruminococcaceae:0.04446):0.00315,Ruminococcaceae_UCG-004:0.02583):0.00931,Ruminococcaceae_NK4A214_group:0.06264):0.00054,(Unclassified_Clostridiales:0.02840,Oscillibacter:0.05719):0.09118):0.01315,Ruminiclostridium_9:0.05151):0.01291):0.02132):0.04354):0.06144):0.02188):0.04790,(((Family_XIII_AD3011_group:0.02172,[Eubacterium]_nodatum_group:0.06266):0.06824,(Romboutsia:0.04262,Clostridium_sensu_stricto_1:0.11606):0.02262):0.03051,(Christensenellaceae_R-7_group:0.15826,(((Turicibacter:0.06557,(((uncultured_Erysipelotrichaceae:0.05546,Faecalibaculum:0.10797):0.00454,Allobaculum:0.05609):0.16694,(Enterococcus:0.02447,Lactobacillus:0.10618):0.04346):0.02419):0.07350,((norank_Gastranaerophilales:0.21894,Akkermansia:0.36391):0.04470,Phascolarctobacterium:0.11938)\:0.04805):0.03252,uncultured_Peptococcaceae:0.15405):0.02547):0.01686):0.02825):0.02857,(Bifidobacterium:0.21210,(Collinsella:0.12867,Coriobacteriaceae_UCG-002:0.01876):0.09326):0.11296):0.01634):0.22309,((Prevotellaceae_NK3B31_group:0.06608,Prevotellaceae_UCG-001:0.05957):0.10171,(Bacteroides:0.06994,Parabacteroides:0.14470,Parabacteroides1:0.14470,Parabacteroides2:0.14470):0.08730):0.05127):0.15033):0.0000;\n",
+    //     "tree_color": [{
+    //         "name": "p__Actinobacteria",
+    //         "color": "#388E3C",
+    //         "species": ["Bifidobacterium", "Collinsella", "Coriobacteriaceae_UCG-002"]
+    //     }, {
+    //         "name": "p__Tenericutes",
+    //         "color": "#F44336",
+    //         "species": ["norank_Mollicutes_RF9"]
+    //     }, {
+    //         "name": "p__Firmicutes",
+    //         "color": "#0288D1",
+    //         "species": ["[Eubacterium]_coprostanoligenes_group", "Ruminococcus_1", "Clostridium_sensu_stricto_1", "Lachnospira", "Ruminiclostridium_5", "Ruminiclostridium_6", "Oscillibacter", "Eisenbergiella", "Ruminiclostridium_9", "Lachnospiraceae_UCG-001", "Ruminococcaceae_UCG-008", "Allobaculum", "Romboutsia", "Anaerotruncus", "Turicibacter", "Ruminococcaceae_UCG-004", "Ruminococcaceae_UCG-005", "Coprococcus_1", "Unclassified_Lachnospiraceae", "Family_XIII_AD3011_group", "Phascolarctobacterium", "Lactobacillus", "Ruminococcaceae_NK4A214_group", "Defluviitaleaceae_UCG-011", "Blautia", "Unclassified_Clostridiales", "uncultured_Erysipelotrichaceae", "Ruminococcaceae_UCG-009", "[Bacteroides]_pectinophilus_group", "uncultured_Lachnospiraceae", "[Ruminococcus]_torques_group", "uncultured_Peptococcaceae", "Sellimonas", "Enterococcus", "uncultured_Ruminococcaceae", "Flavonifractor", "Lachnospiraceae_UCG-010", "[Eubacterium]_nodatum_group", "Roseburia", "Faecalibaculum", "Christensenellaceae_R-7_group", "Lachnoclostridium", "Ruminococcaceae_UCG-014", "Coprococcus_2", "Marvinbryantia", "Lachnospiraceae_NK4A136_group", "Unclassified_Ruminococcaceae"]
+    //     }, {
+    //         "name": "p__Cyanobacteria",
+    //         "color": "#FF9800",
+    //         "species": ["norank_Gastranaerophilales"]
+    //     }, {
+    //         "name": "p__Bacteroidetes",
+    //         "color": "#212121",
+    //         "species": ["Bacteroides", "Parabacteroides", "Prevotellaceae_NK3B31_group", "Prevotellaceae_UCG-001", "norank_Bacteroidales_S24-7_group"]
+    //     }, {
+    //         "name": "p__Verrucomicrobia",
+    //         "color": "#E91E63",
+    //         "species": ["Akkermansia"]
+    //     }, {
+    //         "name": "p__Proteobacteria",
+    //         "color": "#673AB7",
+    //         "species": ["Parasutterella", "Desulfovibrio", "Escherichia-Shigella", "Helicobacter"]
+    //     }],
+    //     "size": {
+    //         "width": 1000,
+    //         "height": 1490
+    //     },
+    //     "params": {
+    //         "title": "Phylogenetic tree on Genus bar",
+    //         "legend_text": "Group", /*图例上文字*/
+    //         // "chart_text": "Phylogenetic tree-L",  /*副标题*/
+    //         "show_line": 1,   /* 0:不显示枝长；1:显示枝长。*/
+    //         "show_confidence": 1,  /* 0:不显示置信度；1:显示置信度。*/
+    //         "show_name": 1  /*0：不显示样本名，1：显示样本名。*/
+    //     }
+    // }
+
+
+    jQuery.ClusterTree.showClusterTree('container', contents)
+    </script>
+</body>
+
+</html>

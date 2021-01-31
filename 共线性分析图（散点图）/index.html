@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>...</title>
+<script src="./highcharts.js"></script>
+<script src="./boost.js"></script>
+<script src="./jquery.min.js"></script>
+<script src="./js.js"></script>
+</head>
+<body>
+<div id="container" style="max-width:600px;height:400px"></div>
+<script>
+var contents1 = {
+  "datas":[
+    {
+      "name": "chr1",
+      "data": [[0, 20], [1, 19], [2, 18]]
+  },
+  {
+    "name": "chr2",
+    "data": [[3, 17], [4, 16], [5, 15]]
+  },
+  {
+    "name": "chr3",
+    "data": [[6, 14], [7, 13], [8, 12]]
+  },
+  {
+    "name": "chr4",
+    "data": [[9, 11], [10, 10], [11, 9]]
+  },
+  {
+    "name": "chr5",
+    "data": [[12, 8], [13, 7], [14, 6]]
+  },
+  {
+    "name": "chr6",
+    "data": [[15, 5], [16, 4], [17, 3]]
+  },
+  {
+    "name": "chr7",
+    "data": [[18, 2], [19, 1], [20, 0], [21, 0]]
+  }
+  ],
+  "params": {
+    "colors": ["#FF0000", "#FFD700", "#FFFF00", "#00FF00", "#00FFFF", "#00BFFF", "#0000FF", "#800080"],
+    "pos_x": [0, 2, 5, 8, 11, 14, 17, 21],  /*pos_x为横坐标所有染色体位置的最大值生成的list。*/
+    "pos_y": [21 ,18 ,15 ,12 ,9 ,6 ,3 ,0],   /*pos_y为纵坐标所有染色体位置的最大值生成成的list。*/
+    "name":["chr1","chr2","chr3","chr4","chr5","chr6","chr7"],
+    "x_title": "xxxxxx",
+    "y_title": "yyyyy",
+    "title": "title_xxxxxxxxxx"
+  },
+  "size": {
+    "width": 600,
+    "height": 400
+  }
+};
+jQuery.point_report.show_point('container', contents1);
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>Snow</title> -->
+    <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="./js.js"></script>
+    <script>
+        window.addEventListener('load', function(){
+            this.snow = new Snow();
+            // 初始化snow对象并开始下雪动画
+            snow.init().start();
+        });
+    </script>
+</body>
+</html>

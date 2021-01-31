@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>...</title>
+<!-- <link rel="stylesheet" href="./css.css" type="text/css" /> -->
+<script src="./d3.min.js"></script>
+<script src="./jquery.min.js"></script>
+<script src="./js.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script>
+var contents1 = {
+  "datas": {
+    "left_data": [250,190,100,50,10],
+    "right_data": [250,190,150,100,80,50,50,50,10]
+  },
+  "params": {
+    "upstream_seq_num": 541600,  /*坐标轴数字*/
+    "downstream_seq_num": 542800,  /*坐标轴数字*/
+    "chr_id": "chr4",  /*染色体id*/
+    "title": "上下游序列",  /*主标题*/
+    "title_is_show": 1,  /*主标题是否展示，1展示，0不展示。*/
+    "left_axis_title": "上游序列2k",  /*左下标题*/
+    "left_is_show": 1,  /*左标题是否展示，1展示，0不展示。*/
+    "right_axis_title": "下游序列2k",  /*右下标题*/
+    "right_is_show": 1,  /*右标题是否展示，1展示，0不展示。*/
+    "color_left": "green",  /*左侧颜色*/
+    "color_right": "purple"  /*右侧颜色*/
+  },
+  "size": {
+    "width": 800,
+    "height": 300
+  }
+};
+  jQuery.insert_chart.show_insert_chart('container', contents1);
+</script>
+</body>
+</html>

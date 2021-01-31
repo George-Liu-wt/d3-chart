@@ -1,0 +1,21 @@
+    .tooltip {
+          position:absolute;
+          font-family:simsun;
+          font-size: 16px;
+          font-weight: 500;
+          width:25px;
+          height:18px;
+          padding:0px;
+          background-color:white;
+          text-align:center;
+          border-style:solid;
+          /* border-color:red; */
+          border-width:2px;
+          -webkit-border-radius:10px;
+          -moz-border-radius:10px;
+          border-radius:5px;
+          -webkit-box-shadow:4px 4px 10px rgba(0,0,0,0.4);
+          -moz-box-shadow:4px 4px 10px rgba(0,0,0,0.4);
+          box-shadow:4px 4px 10px rgba(255,0,0,0.4);
+          pointer-events:none;
+        }
